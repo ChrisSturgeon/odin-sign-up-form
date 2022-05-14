@@ -49,49 +49,46 @@ table {
 
 /* My CSS */
 
-@font-face {
-  font-family: odinFont;
-  src: url(Norse-Bold.otf);
+body {
+  font-family: rubik, sans-serif;
+  color: rgba(6, 26, 75);
+  box-sizing: border-box;
 }
 
-body {
+.flex-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  background-color: black;
-  color: rgb(6, 25, 75);
-  font-family: rubik, sans-serif;
 }
-
-body > div {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-}
-
-.emphasis {
-  font-style: italic;
-}
-
 
 .left {
+  flex: 35%;
+  height: 100vh;
+  background: url('wave.jpeg');
+  background-size: cover;
+  background-color: blue;
   display: flex;
-  flex: 1 1;
   flex-flow: column nowrap;
   justify-content: flex-end;
-  background-image: url("wave.jpeg");
-  background-size: 100%;
-  background-color: grey;
+}
+
+.right {
+  flex: 65%;
+  height: 100vh;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 .banner {
-  position: relative;
-  top: -65.8vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0px;
   background-color: rgba(6, 26, 75, 0.782);;
+  height: 100px;
+  position: relative;
+  bottom: 63.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
   color: white;
   font-weight: 900;
   font-size: 5rem;
@@ -100,45 +97,33 @@ body > div {
 
 .banner > div {
   position: relative;
-  top: 6px;
+  top: 8px;
 }
 
-.pCredit {
+.credit {
   text-align: center;
-  padding: 5px;
-  color: rgb(0, 0, 0);
-  font-family: sans-serif;
+  position: relative;
+  bottom: 1vh;
   font-size: 0.75rem;
 }
 
 a:link, a:visited {
-  color: black;
+  color: inherit;
 }
 
-.right {
-  flex: 1.5 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #f8f8f8;
-}
-
-.text {
-  flex:1;
-  padding: 0px 60px 50px 30px;
+.blurb {
+  flex: 33%;
+  padding: 20vh 150px 50px 30px;
   font-size: 1.25rem;
-  box-sizing: border-box; 
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-end;
+  line-height: 1.2
 }
 
-.text > p:nth-child(2) {
-  margin-top: 30px;
+.blurb > p:nth-child(2) {
+  margin-top: 20px;
 }
 
 .details {
-  flex: 1;
+  flex: 33%;
   background-color: #ffffff;
   box-shadow: 0 2px 10px rgb(172, 172, 172);
   box-sizing: border-box; 
@@ -151,20 +136,18 @@ a:link, a:visited {
   font-weight: 700;
 }
 
-.formArea {
-  height: 25vh;
-}
-
 form {
   display:flex;
   flex-flow: row wrap;
   height: 100%;
+  margin-bottom: 50px;
 }
 
 form > * {
   display: flex;
   flex-flow: column;
   width: 45%;
+  margin-top: 20px;
   margin-right: 30px;
   font-size: 1.2rem;
 }
@@ -185,8 +168,9 @@ input:focus {
   outline: 0.5px solid blue;
 }
 .create {
-  flex: 1;
+  flex: 33%;
   padding: 30px;
+  margin-bottom: 30px;
 }
 
 button {
@@ -204,7 +188,46 @@ button:hover {
   background-color: white;
   padding: 18px;
   border: 2px solid rgb(6, 25, 75);;
-  
 }
 
+.emphasis {
+  font-style: italic;
+}
 
+@font-face {
+  font-family: odinFont;
+  src: url(Norse-Bold.otf);
+}
+
+@media (max-width: 900px) {
+  .right, .left {
+    flex: 100%;
+  }
+
+  .left {
+    height: 120px;
+  }
+
+  .banner {
+    top: 0px;
+  }
+
+  .credit {
+    height: 0px;
+    display:none;
+  }
+
+  .right {
+    justify-content: flex-start;
+  }
+
+  .blurb {
+    padding: 30px;
+  }
+
+  form > * {
+    width: 100%;
+    margin-right: 0px;
+  }
+
+}
